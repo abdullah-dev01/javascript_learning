@@ -71,4 +71,3 @@ Happy coding! 🚀
 3. **Updated Goals & Roadmap** to reflect the focus on mastering core concepts and completing projects.
 4. Removed advanced topics like "Modules, Closures, Prototypes" since they are not part of your initial roadmap.
 5. Simplified the project structure to match the progression of your learning plan.
-
