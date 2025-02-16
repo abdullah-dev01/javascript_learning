@@ -17,6 +17,8 @@ let y = 15;
 y = 25; // Allowed
 console.log(y); // Output: 25
 
+// => see example 1.1 at last
+
 // 3. const (For constant values)
 // - Block-scoped like let
 // - Cannot be reassigned after initialization
@@ -84,3 +86,21 @@ console.log("After swap: p =", p, ", q =", q, ", r =", r); // Output: After swap
 // - Strings store text and support various operations like concatenation and case changes.
 // - Numbers include integers and decimals, with built-in math functions.
 // - Practice problems reinforce basic JavaScript operations.
+
+
+
+
+
+// Example 1.1
+function testScope() {
+    if (true) {
+        var a = 10; // var is function-scoped
+        let b = 20; // let is block-scoped
+    }
+    
+    console.log(a); // ✅ Works because var is function-scoped
+    console.log(b); // ❌ Error: b is not defined (because let is block-scoped)
+}
+
+testScope();
+// Output: 10
