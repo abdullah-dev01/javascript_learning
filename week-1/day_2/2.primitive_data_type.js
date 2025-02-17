@@ -63,3 +63,11 @@ console.log(address); // Output: undefined
 // - Prefer let/const over var in modern code
 // - let/const have block scope, var has function scope
 // - Use const for values that shouldn't change
+
+
+
+
+
+
+
+

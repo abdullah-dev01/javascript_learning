@@ -90,7 +90,6 @@ console.log("After swap: p =", p, ", q =", q, ", r =", r); // Output: After swap
 
 
 
-
 // Example 1.1
 function testScope() {
     if (true) {
