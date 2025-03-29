@@ -58,8 +58,7 @@ This is a personal learning repository, but if you have suggestions or improveme
 
 ## ⭐ Let's Connect
 If you're also learning JavaScript, feel free to connect and share ideas!
-- LinkedIn: [Your Profile](https://www.linkedin.com/in/abdullah-ansari-2917411a2/)
-- Twitter: [Your Handle](https://twitter.com/yourhandle)
+- LinkedIn: [abdullahansari](https://www.linkedin.com/in/abdullah-ansari-2917411a2/)
 
 Happy coding! 🚀
 
