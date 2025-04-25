@@ -66,9 +66,7 @@ This is a personal learning repository, but if you have suggestions or improveme
 ## ⭐ Let's Connect
 
 If you're also learning JavaScript, feel free to connect and share ideas!
-
-- LinkedIn: [Your Profile](https://www.linkedin.com/in/abdullah-ansari-2917411a2/)
-- Twitter: [Your Handle](https://twitter.com/yourhandle)
+- LinkedIn: [abdullahansari](https://www.linkedin.com/in/abdullah-ansari-2917411a2/)
 
 Happy coding! 🚀
 
@@ -81,6 +79,5 @@ Happy coding! 🚀
 3. **Updated Goals & Roadmap** to reflect the focus on mastering core concepts and completing projects.
 4. Removed advanced topics like "Modules, Closures, Prototypes" since they are not part of your initial roadmap.
 5. Simplified the project structure to match the progression of your learning plan.
-
-Material
 https://www.youtube.com/playlist?list=PLZPZq0r_RZOO1zkgO4bIdfuLpizCeHYKv
+
