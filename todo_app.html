@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 0 20px;
+        background-color: #f0f2f5; /* Light gray background */
+        color: #333; /* Darker text color for contrast */
+      }
+
+      .todo-container {
+        margin-top: 20px;
+        background-color: #ffffff; /* White background for todo list */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 15px; /* Inner spacing */
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s ease; /* Smooth hover transition */
+      }
+
+      .todo-item:hover {
+        background-color: #f9f9f9; /* Light gray hover effect */
+      }
+
+      .todo-item.completed {
+        opacity: 0.6;
+        background-color: #e9ecef; /* Slightly darker for completed items */
+      }
+
+      .todo-item.completed span {
+        text-decoration: line-through;
+        color: #6c757d; /* Muted text color for completed items */
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        width: 70%;
+        border: 1px solid #ced4da; /* Subtle border */
+        border-radius: 4px; /* Rounded edges */
+        font-size: 14px;
+        transition: border-color 0.3s ease; /* Smooth focus transition */
+      }
+
+      input[type="text"]:focus {
+        border-color: #007bff; /* Blue border on focus */
+        outline: none; /* Remove default outline */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Glow effect */
+      }
+
+      button {
+        padding: 8px 15px;
+        margin-left: 10px;
+        cursor: pointer;
+        background-color: #007bff; /* Blue button */
+        color: white; /* White text */
+        border: none;
+        border-radius: 4px; /* Rounded edges */
+        font-size: 14px;
+        transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth transitions */
+      }
+
+      button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+
+      button:active {
+        transform: scale(0.98); /* Slight press effect */
+      }
+
+      button:disabled {
+        background-color: #6c757d; /* Gray for disabled state */
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo App</h1>
+    <div>
+      <input type="text" id="todoInput" placeholder="Add a new task" />
+      <button onclick="addTodo()">Add</button>
+    </div>
+    <div class="todo-container" id="todoList">
+      <p>No todos yet</p>
+    </div>
+    <script>
+      // Array to store todos
+      let todos = [];
+      if (todos.length === 0) {
+        const noTodos = document.createElement("p");
+        noTodos.textContent = "No todos yet";
+        noTodos.style.textAlign = "center";
+        todoList.appendChild(noTodos);
+      }
+      // Function to add a new todo
+      function addTodo() {
+        const input = document.getElementById("todoInput"); // getElementById("todoInput") returns the element with the id "todoInput"
+        const text = input.value.trim();
+        // method and functions
+        if (text) {
+          const todo = {
+            id: Date.now(),
+            text: text,
+            completed: false,
+          };
+          todos.push(todo);
+          input.value = "";
+          renderTodos(); // it update the UI
+        }
+        // Function to toggle todo completion
+        function toggleTodo(id) {
+          /**
+           * The purpose of this function is to toggle the completed property of a todo
+           * when the user clicks on the todo item.
+           *
+           * What the function does is:
+           *  - It takes an id as an argument
+           *  - It uses the map() method to loop through the todos array
+           *  - It checks if the id of the current todo matches the id passed in the argument
+           *    - If it does, it returns a new object with all the properties of the current todo
+           *      and the completed property is flipped (i.e. if it was true, it becomes false and vice versa)
+           *    - If it doesn't match, it just returns the current todo object
+           *  - It assigns the new array (with the toggled todo) to the todos array
+           *  - It calls the renderTodos() function to update the UI
+           */
+          todos = todos.map((todo) => {
+            if (todo.id === id) {
+              return { ...todo, completed: !todo.completed };
+            }
+            return todo;
+          });
+          renderTodos();
+        }
+
+        // delete a todo
+        function deleteTodo(id) {
+          // filter() creates a new array with all elements that pass the test implemented by the provided function.
+          // here, the function is (todo) => todo.id !== id
+          // this means that the callback function is checking if the todo.id is not equal to the id passed in the function argument
+          // if the condition is true, then the todo is included in the new array
+          // if the condition is false, then the todo is not included in the new array
+          // the new array is then assigned to the todos variable, effectively removing the todo with the matching id
+          todos = todos.filter((todo) => todo.id !== id);
+          renderTodos();
+        }
+
+        // Function to render todos
+        // This function is responsible for generating the HTML for the todos list
+        // and updating the UI with the new HTML.
+        function renderTodos() {
+          // Get the element with id="todoList"
+          const todoList = document.getElementById("todoList");
+          // Clear the innerHTML of the element
+          // This is necessary because the function is called multiple times
+          // and we don't want to append the same HTML multiple times.
+          todoList.innerHTML = "";
+
+          // Loop through the todos array
+          todos.forEach((todo) => {
+            // Create a div element
+            const div = document.createElement("div");
+            // Add a class to the div element that depends on the completed property of the todo
+            // if the todo is completed, add the class "completed"
+            // if the todo is not completed, add no class
+            div.className = `todo-item ${todo.completed ? "completed" : ""}`;
+
+            // Create a checkbox element
+            const checkbox = document.createElement("input");
+            // Set the type of the element to "checkbox"
+            checkbox.type = "checkbox";
+            // Set the checked property of the element to the value of the completed property of the todo
+            checkbox.checked = todo.completed;
+            // Add an event listener to the checkbox element
+            // When the user clicks the checkbox, call the toggleTodo() function with the id of the todo as an argument
+            checkbox.onclick = () => toggleTodo(todo.id);
+
+            // Create a span element
+            const text = document.createElement("span");
+            // Set the textContent of the element to the text property of the todo
+            text.textContent = todo.text;
+            // Set the flex property of the element to "1"
+            // This is necessary because we want the text to take up all the available space in the div
+            text.style.flex = "1";
+            // Set the margin property of the element to "0 10px"
+            // This is necessary because we want to add some space between the checkbox and the text
+            text.style.margin = "0 10px";
+
+            // Create a button element
+            const deleteBtn = document.createElement("button");
+            // Set the textContent of the element to "Delete"
+            deleteBtn.textContent = "Delete";
+            // Add an event listener to the button element
+            // When the user clicks the button, call the deleteTodo() function with the id of the todo as an argument
+            deleteBtn.onclick = () => deleteTodo(todo.id);
+
+            // Append the checkbox, text, and delete button elements to the div element
+            div.appendChild(checkbox);
+            div.appendChild(text);
+            div.appendChild(deleteBtn);
+
+            // Append the div element to the todoList element
+            todoList.appendChild(div);
+          });
+        }
+      }
+      // Add todo when Enter key is pressed
+      document
+        .getElementById("todoInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            addTodo();
+          }
+        });
+    </script>
+  </body>
+</html>

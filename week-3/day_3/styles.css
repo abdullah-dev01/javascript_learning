@@ -1,0 +1,102 @@
+/* 
+  Styling for the todo app
+  - Set the font and basic layout
+  - Style the todo list container
+  - Style the individual todo items
+  - Style the input field
+  - Style the add button
+*/
+
+body {
+    /* Set the font and basic layout */
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #f0f2f5;
+    color: #333;
+  }
+  
+  .todo-container {
+    /* Style the todo list container */
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    align-items: center;
+  }
+  
+  .todo-item {
+    /* Style the individual todo items */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    align-items: center;
+  }
+  
+  .todo-item:hover {
+    /* Change the background color when hovering over a todo item */
+    background-color: #f9f9f9;
+  }
+  
+  .todo-item.completed {
+    /* Style completed todo items */
+    opacity: 0.6;
+    background-color: #e9ecef;
+  }
+  
+  .todo-item.completed span {
+    /* Strike through completed todo items */
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+  
+  input[type="text"] {
+    /* Style the input field */
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    /* Change the border color and add a glow effect when the input field is focused */
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  button {
+    /* Style the add button */
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  button:hover {
+    /* Change the background color when hovering over the add button */
+    background-color: #0056b3;
+  }
+  
+  button:active {
+    /* Add a press effect when the button is clicked */
+    transform: scale(0.98);
+  }
+  
+  button:disabled {
+    /* Style the button when it is disabled */
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  

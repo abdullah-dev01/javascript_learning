@@ -34,7 +34,7 @@
 //    - Example: Create a program to calculate simple interest.
 
 
-// Since you're already familiar with Dart and picking up JavaScript with an 80-20 focus, you can learn these concepts in a structured way over **7 days** while reinforcing them with coding practice.  
+// ===============================Second Day ==========================================
 
 // ### **JavaScript One-Week Master Plan**  
 // #### **Day 1: JavaScript Basics & Core Concepts**  
