@@ -5,7 +5,7 @@
 
 // 1. Declaring Strings:  
 // Strings can be declared using single quotes (`'`), double quotes (`"`), or backticks (`` ` ``) (Template literals).
-   
+
 // Example of string declarations:
 let str1 = 'Hello World';    // Using single quotes
 let str2 = "JavaScript";     // Using double quotes
